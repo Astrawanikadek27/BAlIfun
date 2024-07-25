@@ -1,0 +1,159 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/*========== Navbar ===========*/
+.navbar-custom {
+  background-color: rgba(
+    149,
+    148,
+    148,
+    0.8
+  ); /* Transparan dengan latar belakang putih */
+  backdrop-filter: blur(10px); /* Efek blur pada latar belakang */
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-nav .nav-link {
+  color: #000;
+}
+.navbar-custom .navbar-brand:hover,
+.navbar-custom .navbar-nav .nav-link:hover {
+  color: #fff;
+  background-color: #fd7e14; /* Oranye */
+  border-radius: 0.25rem; /* Rounded corners */
+}
+.navbar-custom .form-control {
+  border-radius: 0.25rem;
+}
+.navbar-custom .btn-primary {
+  background-color: #fd7e14;
+  border: none;
+}
+.navbar-custom .btn-primary:hover {
+  background-color: #0056b3;
+}
+/* Garis pembatas di bawah item menu pada perangkat kecil */
+@media (max-width: 991.98px) {
+  .navbar-nav .nav-link {
+    border-bottom: 1px solid #ddd; /* Warna garis pembatas */
+    padding-bottom: 0.75rem; /* Ruang bawah */
+  }
+  .navbar-nav .nav-item:last-child .nav-link {
+    border-bottom: none; /* Menghilangkan garis pembatas pada item terakhir */
+  }
+}
+
+.teamss {
+  padding: 80px 0;
+  overflow: hidden;
+}
+.team .member {
+  position: relative;
+  padding: 30px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 1);
+  border-radius: 5px;
+  background: #fff;
+}
+.team .member .teampic {
+  overflow: hidden;
+  width: 180px;
+  border-radius: 50%;
+}
+.team .member .member-info {
+  padding-left: 30px;
+}
+.team .member h4 {
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-size: 20px;
+  color: tomato;
+}
+.team .member span {
+  display: block;
+  font-size: 15px;
+  padding-bottom: 10px;
+  position: relative;
+  font-weight: 500;
+}
+.team .member span::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 50px;
+  height: 2px;
+  background: black;
+  bottom: 0;
+  left: 0;
+}
+.team .member p {
+  margin: 10px 0 0 0;
+  font-size: 14px;
+}
+.team .member .social {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.team .member .social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgb(236, 190, 39);
+}
+.team .member .social a i {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  margin: 0 2px;
+}
+.team .member .social a:hover {
+  background: wheat;
+}
+.team .member .social a + a {
+  margin-left: 8px;
+}
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+.underline {
+  width: 150px;
+  height: 1px;
+  background-color: black;
+  margin: auto;
+  margin-top: -30px;
+}
+.section-title h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  position: relative;
+  color: tomato;
+}
+.section-title p {
+  margin-top: 20px;
+}
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* Pastikan tombol berada di atas elemen lainnya */
+}
+
+.whatsapp-icon {
+  width: 60px; /* Sesuaikan ukuran ikon */
+  height: 60px; /* Sesuaikan ukuran ikon */
+  background-color: #25d366; /* Warna latar belakang */
+  border-radius: 50%; /* Membuat ikon berbentuk bulat */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Memberikan efek bayangan */
+  padding-left: 18px;
+  padding-bottom: 15px;
+  transition: transform 0.3s ease-in-out; /* Animasi saat hover */
+  color: white; /* Warna ikon */
+  font-size: 30px; /* Ukuran ikon */
+  line-height: 60px; /* Menyesuaikan posisi vertikal ikon */
+}

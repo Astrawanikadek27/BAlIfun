@@ -1,0 +1,791 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bali Fun - Home</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="profile.jpg" type="image/x-icon" />
+    <!-- css link -->
+    <link rel="stylesheet" href="" />
+    <!-- bootstrap 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" />
+    <!-- icons cdn -->
+    <!-- fontawesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+    <!-- bootstrap icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&display=swap" rel="stylesheet" />
+
+    <style>
+      /*========== Navbar ===========*/
+      .navbar-custom {
+        background-color: rgba(
+          130,
+          130,
+          130,
+          0.8
+        ); /* Transparan dengan latar belakang putih */
+        backdrop-filter: blur(10px); /* Efek blur pada latar belakang */
+      }
+      .navbar-custom .navbar-brand,
+      .navbar-custom .navbar-nav .nav-link {
+        color: #000;
+      }
+      .navbar-custom .navbar-brand:hover,
+      .navbar-custom .navbar-nav .nav-link:hover {
+        color: #fff;
+        background-color: #fd7e14; /* Oranye */
+        border-radius: 0.25rem; /* Rounded corners */
+      }
+      .navbar-custom .form-control {
+        border-radius: 0.25rem;
+      }
+      .navbar-custom .btn-primary {
+        background-color: #fd7e14;
+        border: none;
+      }
+      .navbar-custom .btn-primary:hover {
+        background-color: #0056b3;
+      }
+      /* Garis pembatas di bawah item menu pada perangkat kecil */
+      @media (max-width: 991.98px) {
+        .navbar-nav .nav-link {
+          border-bottom: 1px solid #ddd; /* Warna garis pembatas */
+          padding-bottom: 0.75rem; /* Ruang bawah */
+        }
+        .navbar-nav .nav-item:last-child .nav-link {
+          border-bottom: none; /* Menghilangkan garis pembatas pada item terakhir */
+        }
+      }
+      .container {
+        padding-top: 50px;
+        align-items: center;
+      }
+
+      .card-body {
+        position: relative;
+        background-color: blanchedalmond;
+      }
+
+      .carousel-item {
+        opacity: 0;
+        transition: opacity 1s ease-in-out;
+      }
+
+      .carousel-item.active {
+        opacity: 1;
+      }
+
+      .carousel-fade .carousel-item {
+        transition: opacity 1s ease-in-out, background-color 1s ease-in-out;
+        background-color: rgba(0, 0, 0, 0.5); /* Add a dark overlay */
+      }
+
+      .carousel-fade .carousel-item.active {
+        background-color: transparent;
+      }
+
+      .d-grid {
+        margin: 0 auto; /* Mengatur margin kiri dan kanan ke auto untuk menengahkan */
+      }
+
+      .get-price {
+        margin-left: 20%;
+        padding-right: 20%;
+      }
+
+      .table {
+        margin-top: 20px;
+        background-color: blanchedalmond;
+        width: 100%;
+      }
+
+      .ptn {
+        position: center;
+      }
+
+      .custom-price-list-button {
+        font-weight: 800;
+        text-align: center;
+        width: 100%;
+      }
+
+      .Abaut-tour {
+        padding-top: 30px;
+      }
+
+      .Tour-interens {
+        padding-top: 30px;
+      }
+
+      .Intinerary {
+        padding-top: 20px;
+      }
+
+      .Included {
+        padding-top: 20px;
+      }
+
+      .Exluded {
+        padding-top: 20px;
+      }
+
+      .bi {
+        font-size: 25px !important;
+        margin-top: 35px !important;
+        color: #353437 !important;
+        cursor: pointer !important;
+      }
+
+      body {
+        padding-top: 100px; /* Atur padding sesuai dengan tinggi navbar */
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 10%;
+      }
+
+      .container-review {
+        margin-top: 50px;
+      }
+
+      .review {
+        background-color: #f6b254;
+        padding: 15px;
+        margin-bottom: 15px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .review h3 {
+        margin: 0;
+      }
+
+      .review p {
+        margin-top: 5px;
+      }
+
+      .rating {
+        color: #ffc107;
+      }
+
+      .bi-star {
+        color: grey; /* Warna bintang kosong */
+        cursor: pointer;
+      }
+
+      .bi-star-fill {
+        color: gold; /* Warna bintang diisi */
+        cursor: pointer;
+      }
+
+      .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000; /* Pastikan tombol berada di atas elemen lainnya */
+      }
+
+      .whatsapp-icon {
+        width: 60px; /* Sesuaikan ukuran ikon */
+        height: 60px; /* Sesuaikan ukuran ikon */
+        background-color: #25d366; /* Warna latar belakang */
+        border-radius: 50%; /* Membuat ikon berbentuk bulat */
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Memberikan efek bayangan */
+        padding-left: 18px;
+        transition: transform 0.3s ease-in-out; /* Animasi saat hover */
+        color: white; /* Warna ikon */
+        font-size: 30px; /* Ukuran ikon */
+        line-height: 60px; /* Menyesuaikan posisi vertikal ikon */
+      }
+
+      .whatsapp-icon:hover {
+        transform: scale(1.1); /* Efek zoom saat hover */
+      }
+
+      /* CSS untuk menampilkan tombol-tombol accordion menyamping pada layar besar */
+      @media (min-width: 992px) {
+        .accordion-row {
+          display: flex;
+          flex-wrap: nowrap;
+        }
+
+        .accordion-item {
+          flex: 1;
+          margin-right: 10px;
+        }
+
+        .accordion-item:last-child {
+          margin-right: 0;
+        }
+      }
+
+      
+      .package-card {
+        position: relative;
+        border: 1px solid #ddd;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .package-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+      .package-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .price-table {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        padding: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+      }
+      .price-table .promo {
+        background-color: #ff5733; /* Warna promo */
+        border-radius: 0.25rem;
+        padding: 0.5rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        text-align: center;
+      }
+      .price-table p {
+        margin: 0;
+      }
+      .price {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #007bff;
+      }
+      .package-card .card-body {
+        padding: 1.5rem;
+      }
+      .icon-text {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
+      .icon-text i {
+        font-size: 1.2rem;
+        margin-right: 0.5rem;
+      }
+      .icon-text p {
+        margin: 0;
+      }
+
+      /* CSS dengan identifier unik */
+      .unique-centered-container {
+            display: flex;
+            justify-content: center; /* Aligns items horizontally center */
+            align-items: center;     /* Aligns items vertically center */
+            height: 10px;           /* Full viewport height */
+            background-color: #f8f9fa; /* Optional background color */
+        }
+    
+    </style>
+  </head>
+
+  <body  >
+
+      <!--===================  navbar  ====================-->
+    <section>
+      <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="#">BaliFunDestination</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="./home.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./Abaut.html">About Us</a>
+              </li>
+              
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Destinations
+                </a>
+                
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#packages">Packages</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#services">Gallery</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contac.html">Contact</a>
+              </li>
+              <li class="nav-item d-none d-lg-block">
+                <!-- Optional: Form pencarian atau tombol CTA -->
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </section>
+      <section>
+  
+      </section>
+  
+      <section>
+        <div>
+        
+        <div class="card mb-3" style="width: 100%; height: 100%">
+          <div class="row g-0 ">
+              <div class="col-md-4">
+                  <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                      <div class="carousel-indicators">
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                      </div>
+                      <div class="carousel-inner">
+                          <div class="carousel-item active">
+                              <img src="../images/pura.webp" class="d-block w-100" alt="Image 1">
+                          </div>
+                          <div class="carousel-item">
+                              <img src="../images/tanahlot1.avif" class="d-block w-100" alt="Image 2">
+                          </div>
+                          <div class="carousel-item">
+                              <img src="../images/logo.jpg" class="d-block w-100" alt="Image 3">
+                          </div>
+                      </div>
+                      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Previous</span>
+                      </button>
+                      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                          <span class="visually-hidden">Next</span>
+                      </button>
+                  </div>
+              </div>
+              <div class="col-md-8 d-flex justify-content-center">
+                  <div class="card-body">
+                      <h1 class="card-title text-center">Jeep Sunrise and Black Lava</h1>
+                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                      
+                      <div class="d-flex flex-column align-items-center gap-3">
+                        <div class="p-2 bg-light border text-center shadow-lg p-3 mb-5 bg-body rounded" style="width: 420px;">
+                            <i class="bi bi-cash-stack"></i> HARGA <br>
+                        </div>
+                        
+                        <div class="d-flex flex-wrap gap-3 justify-content-center">
+                            <div>
+                                <div class="p-2 bg-light border text-center" style="width: 200px;">
+                                    <i class="bi bi-geo-alt-fill"></i> Kintamani Batur <br>
+                                </div>
+                                <div class="p-2 bg-light border text-center" style="width: 200px; margin-top: 10px;">
+                                    <i class="bi bi-camera-fill"></i> Nature Destinations <br>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="p-2 bg-light border text-center" style="width: 200px;">
+                                    <i class="bi bi-people-fill"></i> Privat Tour
+                                </div>
+                                <div class="p-2 bg-light border text-center" style="width: 200px; margin-top: 10px;">
+                                    <i class="bi bi-clock-fill"></i> 6 Hours<br>
+                                </div>
+                                <div class="p-2 bg-light border text-center" style="width: 200px; margin-top: 10px;">
+                                    <i class="bi bi-clock-fill"></i> 6 Hours<br>
+                                </div>
+                                <div class="p-2 bg-light border text-center" style="width: 200px; margin-top: 10px;">
+                                    <i class="bi bi-clock-fill"></i> 6 Hours<br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+  
+                      <div>
+                        <div class="container" >
+                          <a href="https://wa.me/6281246405506?text=hello%20i%20want%20to%20Booking!!"><button type="button" class=" btn btn-success pull-left "><h4>BOOK NOW </h4></button></a>
+                        </div>
+                      </div>  
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      
+    
+         
+     <section>
+        <div class=" Abaut-tour">
+          <h4><i class="bi bi-file-text"></i>Abaut Tour</h4>
+          <h5><i class="bi bi-arrow-right" style="margin-left: 20px;"></i><h4>Celebrate the beautiful sunrise without climbing the mountain, feel the sensation of riding a 4x4 jeep.Head to the mountains to find the highest point to see the sunrise with a vehicle.After enjoying the sunrise while enjoying breakfast, then capture a beautiful moment with photos or videos.After that head to the expanse of black lava and enjoy the beautiful scenery between the mountains and the lake.Then enjoy the sensation of soaking in a hot spring.Along the way we go home, we will also visit a traditional coffee factory that comes from fleas.</h4>
+          </div>
+        <div class="container; " style="background-color: antiquewhite;">
+          <div class="container">
+            <div class="container shadow-lg p-3 mb-5 bg-body rounded" >
+              <div class="accordion-row" id="accordionExample">
+                <div class="accordion-item" style="background-color: antiquewhite;">
+                  <h2 class="accordion-header " id="headingOne">
+                    <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="background-color: rgb(247, 186, 94);">
+                      <h4><i class="bi bi-geo"></i> Tour interens</h4>
+                    </button>
+                  </h2>
+                  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+                    <div class="accordion-body">
+                      <h5><i class="bi bi-check-lg" style="padding-left: 20px;"></i> Sunrise Jeep</h5>
+                      <h5><i class="bi bi-check-lg" style="padding-left: 20px;"></i> Black Lava </h5>
+                      <h5><i class="bi bi-check-lg" style="padding-left: 20px;"></i> Hot Spring</h5>
+                      <h5><i class="bi bi-check-lg" style="padding-left: 20px;"></i> Local Coffe</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item" style="background-color: antiquewhite;">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="background-color: rgb(247, 186, 94);">
+                      <h4><i class="bi bi-clock"></i> Intinarery</h4>
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+                    <div class="accordion-body">
+                      <h5><i class="bi bi-arrow-right" style="margin-left: 20px;"></i> [02-00] Picup time</h5>
+                      <h5><i class="bi bi-arrow-right" style="margin-left: 20px;"></i> [02-00] Picup time</h5>
+                      <h5><i class="bi bi-arrow-right" style="margin-left: 20px;"></i> [02-00] Picup time</h5>
+                      <h5><i class="bi bi-arrow-right" style="margin-left: 20px;"></i> [02-00] Picup time</h5>
+                      <h5><i class="bi bi-arrow-right" style="margin-left: 20px;"></i> [02-00] Picup time</h5>
+                      <!-- Repeat the other items here as needed -->
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item" style="background-color: antiquewhite;">
+                  <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="background-color: rgb(247, 186, 94);">
+                      <h4><i class="bi bi-check2-square"></i> Include & Excluded</h4>
+                    </button>
+                  </h2>
+                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree">
+                    <div class="accordion-body">
+                      <h5><i class="bi bi-check-lg" style="padding-left: 20px;"></i> Br</h5>
+                      <h5><i class="bi bi-check-lg" style="padding-left: 20px;"></i> Br</h5>
+                      <h5><i class="bi bi-check-lg" style="padding-left: 20px;"></i> Br</h5>
+                      <h5><i class="bi bi-check-lg" style="padding-left: 20px;"></i> Br</h5>
+                      <!-- Repeat the other items here as needed -->
+                      <h3><i class="bi bi-x-square"></i> Exclud</h3>
+                      <h5><i class="bi bi-x" style="padding-left: 20px;"></i> tip</h5>
+                      <h5><i class="bi bi-x" style="padding-left: 20px;"></i> tip</h5>
+                      <h5><i class="bi bi-x" style="padding-left: 20px;"></i> tip</h5>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item" style="background-color: antiquewhite;">
+                  <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="background-color: rgb(247, 186, 94);">
+                      <h4><i class="bi bi-card-checklist"></i> Need prepared</h4>
+                    </button>
+                  </h2>
+                  <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour">
+                    <div class="accordion-body">
+                      <h5><i class="bi bi-check-lg" style="padding-left: 20px;"></i> Cas</h5>
+                      <h5><i class="bi bi-check-lg" style="padding-left: 20px;"></i> Cas</h5>
+                      <!-- Repeat the other items here as needed -->
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingFive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" style="background-color: rgb(247, 186, 94);">
+                      <h4><i class="bi bi-question-circle"></i> QnA</h4>
+                    </button>
+                  </h2>
+                  <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive">
+                    <div class="accordion-body">
+                      <strong>This is the fifth item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+      </section>
+        
+        
+       
+        
+  
+    
+      
+      <section style="padding-top: 30px;">
+     
+          <div class="d-flex justify-content-center shadow-lg p-3 mb-5 bg-body rounded " style="background-color: rgb(255, 255, 255);padding-top: 10px; padding-bottom: 10px;">
+            
+            <a href="https://www.instagram.com/bali_fun.destination?igsh=MWY3dHB1dGw5Mmxjbg=="><i class="bi bi-instagram me-5"></i></a>
+            <a href="https://wa.me/6281246405506?text=hello%20i%20want%20to%20Booking!!"><i class="bi bi-whatsapp me-5"></i></a>
+            <a href="https://www.tiktok.com/@balifun.destination?_t=8n8O1h6B0wU&_r=1"><i class="bi bi-tiktok me-5"></i></a>
+            <a href="mailto:balifundestination@email.com"> <i class="bi bi-envelope me-5"></i></a>
+          
+        </div>
+     </section>
+  
+     <section>
+      <div class="container mt-5">
+        <h2 class="text-center mb-4">More Packages</h2>
+        <div class="row">
+          <!-- Package 3 -->
+          <div class="col-md-4 mb-4">
+            <div class="package-card">
+              <img
+                src="../images/pura.webp"
+                class="card-img-top"
+                alt="Package 3"
+              />
+              <div class="price-table">
+                <div class="promo">10% OFF</div>
+                <p class="price"><del>$150</del></p>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">Cultural Experience</h4>
+                <p class="price">[$120]</p>
+                <div class="icon-text">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <p>Traditional Villages</p>
+                </div>
+                <div class="icon-text">
+                  <i class="fas fa-clock"></i>
+                  <p>2 Days</p>
+                </div>
+                <p class="card-text">
+                  Immerse yourself in local culture with a visit to traditional
+                  villages, temples, and markets.
+                </p>
+                <button type="button" class="btn btn-outline-warning">
+                  VIEW DETAILS
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Package 3 -->
+          <div class="col-md-4 mb-4">
+            <div class="package-card">
+              <img
+                src="../images/pura.webp"
+                class="card-img-top"
+                alt="Package 3"
+              />
+              <div class="price-table">
+                <div class="promo">10% OFF</div>
+                <p class="price"><del>$150</del></p>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">Cultural Experience</h4>
+                <p class="price">[$120]</p>
+                <div class="icon-text">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <p>Traditional Villages</p>
+                </div>
+                <div class="icon-text">
+                  <i class="fas fa-clock"></i>
+                  <p>2 Days</p>
+                </div>
+                <p class="card-text">
+                  Immerse yourself in local culture with a visit to traditional
+                  villages, temples, and markets.
+                </p>
+                <button type="button" class="btn btn-outline-warning">
+                  VIEW DETAILS
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Package 3 -->
+          <div class="col-md-4 mb-4">
+            <div class="package-card">
+              <img
+                src="../images/pura.webp"
+                class="card-img-top"
+                alt="Package 3"
+              />
+              <div class="price-table">
+                <div class="promo">10% OFF</div>
+                <p class="price"><del>$150</del></p>
+              </div>
+              <div class="card-body">
+                <h4 class="card-title">Cultural Experience</h4>
+                <p class="price">[$120]</p>
+                <div class="icon-text">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <p>Traditional Villages</p>
+                </div>
+                <div class="icon-text">
+                  <i class="fas fa-clock"></i>
+                  <p>2 Days</p>
+                </div>
+                <p class="card-text">
+                  Immerse yourself in local culture with a visit to traditional
+                  villages, temples, and markets.
+                </p>
+                <button type="button" class="btn btn-outline-warning">
+                  VIEW DETAILS
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="unique-centered-container">
+        <a href="https://example.com" class="btn btn-primary">ALL Packages</a>
+    </div>
+    </section>
+  
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+    <script>
+      let selectedRating = 0;
+  
+      // Event listener untuk memilih rating
+      document.querySelectorAll('#rating .bi-star').forEach(star => {
+          star.addEventListener('click', function() {
+              selectedRating = this.getAttribute('data-value');
+              document.querySelectorAll('#rating .bi-star').forEach(s => {
+                  s.classList.remove('bi-star-fill');
+                  s.classList.add('bi-star');
+              });
+              for (let i = 0; i < selectedRating; i++) {
+                  document.querySelectorAll('#rating .bi-star')[i].classList.remove('bi-star');
+                  document.querySelectorAll('#rating .bi-star')[i].classList.add('bi-star-fill');
+              }
+          });
+      });
+  
+      document.getElementById('reviewForm').addEventListener('submit', function(e) {
+          e.preventDefault();
+  
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const review = document.getElementById('review').value;
+  
+          const reviewData = {
+              name: name,
+              email: email,
+              review: review,
+              rating: selectedRating
+          };
+  
+          // Simpan data review ke localStorage
+          let reviews = localStorage.getItem('reviews');
+          if (reviews) {
+              reviews = JSON.parse(reviews);
+          } else {
+              reviews = [];
+          }
+          reviews.push(reviewData);
+          localStorage.setItem('reviews', JSON.stringify(reviews));
+  
+          const reviewElement = document.createElement('div');
+          reviewElement.classList.add('review');
+  
+          const nameElement = document.createElement('h3');
+          nameElement.textContent = name;
+  
+          const reviewTextElement = document.createElement('p');
+          reviewTextElement.textContent = review;
+  
+          function getGravatarUrl(email) {
+              const hash = CryptoJS.MD5(email.trim().toLowerCase()).toString();
+              return `https://www.gravatar.com/avatar/${hash}`;
+          }
+  
+          const photoUrl = getGravatarUrl(email);
+          const photoElement = document.createElement('img');
+          photoElement.src = photoUrl;
+          photoElement.classList.add('rounded-circle', 'me-3');
+          photoElement.width = 50;
+          photoElement.height = 50;
+          photoElement.alt = "Foto Reviewer";
+  
+          const reviewHeader = document.createElement('div');
+          reviewHeader.classList.add('d-flex', 'align-items-center', 'mb-3');
+          reviewHeader.appendChild(photoElement);
+          reviewHeader.appendChild(nameElement);
+  
+          const ratingElement = document.createElement('div');
+          ratingElement.classList.add('rating');
+          for (let i = 0; i < 5; i++) {
+              const star = document.createElement('i');
+              star.classList.add('bi', 'bi-star', i < selectedRating ? 'bi-star-fill' : '');
+              ratingElement.appendChild(star);
+          }
+  
+          reviewElement.appendChild(reviewHeader);
+          reviewElement.appendChild(ratingElement);
+          reviewElement.appendChild(reviewTextElement);
+  
+          document.getElementById('reviews').appendChild(reviewElement);
+  
+          document.getElementById('reviewForm').reset();
+          selectedRating = 0;
+          document.querySelectorAll('#rating .bi-star').forEach(s => {
+              s.classList.remove('bi-star-fill');
+              s.classList.add('bi-star');
+          });
+      });
+  </script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+  
+    </section>
+    <section>
+          <!-- Tambahkan ini di bagian body HTML Anda -->
+      <!-- Tombol WhatsApp -->
+      <a href="https://wa.me/6281246405506?text=hello%20i%20want%20to%20Booking!!" class="whatsapp-float" target="_blank">
+      <div class="whatsapp-icon">
+          <i class="bi bi-whatsapp"></i>
+      </div>
+      </a>
+  
+    </section>
+      
+      
+  
+     
+     
+     
+  
+  
+     
+  
+    
+  
+      
+  
+        <!-- Optional JavaScript; choose one of the two! -->
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+          crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
